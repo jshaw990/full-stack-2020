@@ -9,10 +9,10 @@ const NoteService = require('../../services/NoteService');
 const CreateNoteMutation = {
     type: noteType,
     args: {
-        cotent: { type: GraphQLString }
+        content: { type: GraphQLString }
     },
     resolve: async(_, { content }) => {
-        const noteService = new noteService();
+        const noteService = new NoteService();
         const newNote = await noteService.createNote({ content });
 
         return newNote;
