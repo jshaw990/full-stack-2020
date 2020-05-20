@@ -9,14 +9,14 @@ const MainPage = ({ notes }) => {
     const [noteIdBeingUpdated, setNoteIdBeingUpdated] = useState('');
 
     return (
-        <div>
+        <div className="container">
             <header>Notes</header>
             <ul>
                 {notes.map(v => {
                     const isBeingUpdated = noteIdBeingUpdated === v._id;
 
                     return (
-                        <div key={v._id}>
+                        <div key={v._id} className="note-holder">
                             {isBeingUpdated ? (
                                 <li>
                                     <input 
@@ -28,7 +28,7 @@ const MainPage = ({ notes }) => {
                             ) : (
                                 <li>{v.content}</li>
                             )}
-                            <div style={{ display: 'flex' }}>
+                            <div>
                                 <button 
                                     onClick={() => {
                                         if (isBeingUpdated) {
@@ -62,7 +62,7 @@ const MainPage = ({ notes }) => {
                             setNewNote('');
                         }
                     }}
-                >Create Note</button>
+                >Create</button>
             </footer>
         </div>
     );
