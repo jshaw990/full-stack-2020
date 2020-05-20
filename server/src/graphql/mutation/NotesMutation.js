@@ -42,7 +42,7 @@ const UpdateNoteMutation = {
     },
     resolve: async (_, { _id, content }) => {
         const noteService = new NoteService();
-        const updatedNote = await noteService.udateNote(_id, { content });
+        const updatedNote = await noteService.updateNote(_id, { content });
 
         return updatedNote;
     }
